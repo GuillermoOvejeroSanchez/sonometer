@@ -51,7 +51,7 @@ class controlled_execution:
 
 
 def data_to_freq(data):
-    return np.abs(np.fft.rfft(np.fromstring(data, np.int16)))
+    return np.abs(np.fft.rfft(np.frombuffer(data, np.int16)))
 
 
 p = pyaudio.PyAudio()
@@ -79,7 +79,7 @@ active_subplot = figure.add_subplot(111)
 
 # Create a tk.DrawingArea
 canvas = FigureCanvasTkAgg(figure, master=root)
-canvas.show()
+canvas.draw()
 canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
 
 
